@@ -17,6 +17,11 @@ pipeline {
                 sh 'terraform plan'
             }
         }
+        stage('approval') {
+            steps {
+                input message: 'Do you want to apply the Terraform changes?', ok: 'Apply'
+            }
+        }
         stage('terraform apply') {
             steps {
                 sh 'terraform apply -auto-approve'
