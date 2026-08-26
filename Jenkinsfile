@@ -7,7 +7,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/alkesh-007/jenkins.git'
             }
         }
-        stage(Terraform Init) {
+        stage('initialize') {
             steps {
                 sh 'terraform init'
             }
